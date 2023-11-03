@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: producer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: producer
+  template:
+    metadata:
+      labels:
+        app: producer
+    spec:
+      containers:
+        - name: producer
+          image: cloudpoc.azurecr.io/producer:v1
+          ports:
+            - containerPort: 8081
+---
+kind: Service
+apiVersion: v1
+metadata:
+  # Name of our service
+  name: cloud-poc-service-producer
+spec:
+  # LoadBalancer type to allow external access to multiple ports
+  type: LoadBalancer
+  selector:
+    # Will deliver external traffic to the pod holding each of our containers
+    app: producer
+  ports:
+    #- name: sentiment
+      #protocol: TCP
+     - port: 8081
+      #targetPort: containerport
