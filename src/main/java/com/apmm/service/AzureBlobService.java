@@ -1,5 +1,7 @@
+/*
 package com.apmm.service;
 
+import com.apmm.config.AzureBlobConfig;
 import com.azure.core.http.rest.PagedIterable;
 import com.azure.core.util.BinaryData;
 import com.azure.storage.blob.BlobClient;
@@ -8,6 +10,7 @@ import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.models.BlobItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import reactor.core.publisher.Mono;
 
@@ -17,7 +20,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Service
 public class AzureBlobService {
 
     @Autowired
@@ -26,7 +29,9 @@ public class AzureBlobService {
     @Autowired
     BlobContainerClient blobContainerClient;
 
-    public String upload(MultipartFile multipartFile)
+
+    */
+/*public String upload(MultipartFile multipartFile)
             throws IOException {
 
         // Todo UUID
@@ -36,7 +41,8 @@ public class AzureBlobService {
                 multipartFile.getSize(), true);
 
         return multipartFile.getOriginalFilename();
-    }
+    }*//*
+
 
     public byte[] getFile(String fileName)
             throws URISyntaxException {
@@ -70,3 +76,4 @@ public class AzureBlobService {
     }
 
 }
+*/

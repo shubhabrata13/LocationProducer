@@ -1,6 +1,8 @@
 package com.apmm.config;
 
+import com.azure.storage.blob.BlobContainerAsyncClient;
 import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobContainerClientBuilder;
 import com.azure.storage.blob.BlobServiceClient;
 import com.azure.storage.blob.BlobServiceClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +18,7 @@ public class AzureBlobConfig {
     @Value("${azure.storage.container.name}")
     private String containerName;
 
-    @Bean
+    /*@Bean
     public BlobServiceClient clobServiceClient() {
 
         BlobServiceClient blobServiceClient =
@@ -37,5 +39,11 @@ public class AzureBlobConfig {
 
         return blobContainerClient;
 
+    }*/
+
+    @Bean("blobContainerSourceClient")
+    public BlobContainerAsyncClient blobSourceContainerClient() {
+        return new BlobContainerClientBuilder().connectionString(connectionString).containerName(containerName)
+                .buildAsyncClient();
     }
 }
