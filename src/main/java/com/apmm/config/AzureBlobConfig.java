@@ -18,29 +18,6 @@ public class AzureBlobConfig {
     @Value("${azure.storage.container.name}")
     private String containerName;
 
-    /*@Bean
-    public BlobServiceClient clobServiceClient() {
-
-        BlobServiceClient blobServiceClient =
-                new BlobServiceClientBuilder()
-                        .connectionString(connectionString)
-                        .buildClient();
-
-        return blobServiceClient;
-
-    }
-
-    @Bean
-    public BlobContainerClient blobContainerClient() {
-
-        BlobContainerClient blobContainerClient =
-                clobServiceClient()
-                        .getBlobContainerClient(containerName);
-
-        return blobContainerClient;
-
-    }*/
-
     @Bean("blobContainerSourceClient")
     public BlobContainerAsyncClient blobSourceContainerClient() {
         return new BlobContainerClientBuilder().connectionString(connectionString).containerName(containerName)
