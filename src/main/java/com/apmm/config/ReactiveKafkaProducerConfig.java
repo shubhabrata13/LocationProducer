@@ -38,7 +38,6 @@ public class ReactiveKafkaProducerConfig {
                 SaslConfigs.SASL_MECHANISM, sasl_mechanism,
                 SaslConfigs.SASL_JAAS_CONFIG, jaas_config,
                 CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, security_protocol,
-                //CommonClientConfigs.SECURITY_PROTOCOL_CONFIG, "PLAINTEXT",
                 ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class,
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class
 
